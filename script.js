@@ -136,8 +136,19 @@ const lengthOfPassword = prompt('How long do you want your random password to be
 const lengthOfPasswordAsNumber = parseInt(lengthOfPassword, 10);
 
 if (isPasswordLengthSuitable(lengthOfPasswordAsNumber)) {
-  const isincludedLowerCase = confirm('Do you want to include lowercase characters?')
-  //ask more questions to see if user says yes
+  const isincludeLowerCase = confirm('Do you want to include lowercase characters?')
+  const isincludeUpperCase = confirm('Do you want to include Uppercase characters?')
+  const isincludeNumerical = confirm('Do you want to include Numerical characters?')
+  const isincludeSpecialCharacters = confirm('Do you want to include special characters?')
+  //ask more questions to see if user says yes at least 1 
+  //If user say yes continue loop but if not alert should appear telling user to pick at least 1
+
+  if (isincludeLowerCase === true || isincludeUpperCase ===  true || isincludeNumerical === true || isincludeSpecialCharacters === true ) {
+
+  } else {
+    alert('Choose 1 character type please')
+  }
+  // Generate random password based on user answers
 
 } else {
   alert("Password length is not valid. Please make the length a minimum of 8 and maxium of 128 characters")
