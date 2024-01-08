@@ -106,9 +106,9 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-console.log('Get password options')
+console.log('Get password conditions') 
 
-prompt('How long do you want your generated password to be? (The length of the password should be minimum 8 characters long and maximun no more than 128 characters)')
+prompt('How long do you want your generated password to be? (The length of the password should be minimum 8 characters long and maximun no more than 128 characters)') //Prompts user to fit a password to fit these conditions
 
 
 
@@ -122,12 +122,13 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-let finalpassword;
+  console.log('Generate password')
+let createdpassword; //Allows final password to show on the textarea
 getPasswordOptions(); 
 
 
 
-finalpassword;
+ return createdpassword;
 }
 
 // Get references to the #generate element
