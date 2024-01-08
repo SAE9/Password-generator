@@ -101,6 +101,30 @@ var upperCasedCharacters = [
 //Code should validate for each input and at least one character type should be selected
 //Once prompts are answered then the password should be generated and displayed in an alert or written to the page//
 
+function isPasswordLengthSuitable (lengthOfPassword) {
+  if (lengthOfPassword < 8)  {
+    return false;
+
+  }
+
+  if (lengthOfPassword > 128 ) {
+    return false;
+
+  }
+
+  if (lengthOfPassword >= 8 && lengthOfPassword <= 128) {
+    return true;
+  }
+
+  return false;
+
+  function lowerCase(includeLowercase) {
+    if (includeLowercase === true) {
+
+    }
+  }
+
+}
 
 
 
@@ -108,7 +132,21 @@ var upperCasedCharacters = [
 function getPasswordOptions() {
 console.log('Get password conditions') 
 
-prompt('How long do you want your generated password to be? (The length of the password should be minimum 8 characters long and maximun no more than 128 characters)') //Prompts user to fit a password to fit these conditions
+const lengthOfPassword = prompt('How long do you want your random password to be? (The length of the password should be minimum 8 characters long and maximun no more than 128 characters)') //Prompts user to decide password length to fit these options
+const lengthOfPasswordAsNumber = parseInt(lengthOfPassword, 10);
+
+if (isPasswordLengthSuitable(lengthOfPasswordAsNumber)) {
+  const isincludedLowerCase = confirm('Do you want to include lowercase characters?')
+  //ask more questions to see if user says yes
+
+} else {
+  alert("Password length is not valid. Please make the length a minimum of 8 and maxium of 128 characters")
+}
+// function determine if the password length meets criteria and creates alert when not met
+
+
+console.log (lengthOfPassword);
+
 
 
 
