@@ -118,12 +118,6 @@ function isPasswordLengthSuitable (lengthOfPassword) {
 
   return false;
 
-  function lowerCase(includeLowercase) {
-    if (includeLowercase === true) {
-
-    }
-  }
-
 }
 
 
@@ -132,22 +126,34 @@ function isPasswordLengthSuitable (lengthOfPassword) {
 function getPasswordOptions() {
 console.log('Get password conditions') 
 
-const lengthOfPassword = prompt('How long do you want your random password to be? (The length of the password should be minimum 8 characters long and maximun no more than 128 characters)') //Prompts user to decide password length to fit these options
+const lengthOfPassword = prompt('How long do you want your random password to be? (The length of the password should be minimum 8 characters long and maximun no more than 128 characters)'); //Prompts user to decide password length to fit these options
 const lengthOfPasswordAsNumber = parseInt(lengthOfPassword, 10);
 
 if (isPasswordLengthSuitable(lengthOfPasswordAsNumber)) {
-  const isincludeLowerCase = confirm('Do you want to include lowercase characters?')
-  const isincludeUpperCase = confirm('Do you want to include Uppercase characters?')
-  const isincludeNumerical = confirm('Do you want to include Numerical characters?')
-  const isincludeSpecialCharacters = confirm('Do you want to include special characters?')
+  const isincludeLowerCase = confirm('Do you want to include lowercase characters?');
+  const isincludeUpperCase = confirm('Do you want to include Uppercase characters?');
+  const isincludeNumerical = confirm('Do you want to include Numerical characters?');
+  const isincludeSpecialCharacters = confirm('Do you want to include special characters?');
   //ask more questions to see if user says yes at least 1 
   //If user say yes continue loop but if not alert should appear telling user to pick at least 1
 
-  if (isincludeLowerCase === true || isincludeUpperCase ===  true || isincludeNumerical === true || isincludeSpecialCharacters === true ) {
+  if (isincludeLowerCase || isincludeUpperCase || isincludeNumerical || isincludeSpecialCharacters ) {
+    
+    const passwordOptions = {
+      length: lengthOfPasswordAsNumber,
+      lower: isincludeLowerCase,
+      upper: isincludeUpperCase,
+      numerical: isincludeNumerical,
+      special: isincludeSpecialCharacters,
+
+    };
+
+    return generatePassword(passwordOptions);
 
   } else {
     alert('Choose 1 character type please')
   }
+  
   // Generate random password based on user answers
 
 } else {
@@ -156,13 +162,16 @@ if (isPasswordLengthSuitable(lengthOfPasswordAsNumber)) {
 // function determine if the password length meets criteria and creates alert when not met
 
 
+
 console.log (lengthOfPassword);
 
 
 
 
-
 }
+
+
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -172,13 +181,23 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   console.log('Generate password')
-let createdpassword; //Allows final password to show on the textarea
+let createdpassword = ""; //Allows final password to show on the textarea
 getPasswordOptions(); 
-
 
 
  return createdpassword;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
