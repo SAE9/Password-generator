@@ -123,44 +123,46 @@ function isPasswordLengthSuitable(lengthOfPassword) {
 }
 
 
-
 // Function to prompt user for password options
 function getPasswordOptions() {
   console.log('Get password conditions')
 
-  const lengthOfPassword = prompt('How long do you want your random password to be? (The length of the password should be minimum 8 characters long and maximun no more than 128 characters)') 
+  const lengthOfPassword = prompt('How long do you want your random password to be? (The length of the password should be minimum 8 characters long and maximun no more than 128 characters)')
   //Prompts user to decide password length to fit these options
   const lengthOfPasswordAsNumber = parseInt(lengthOfPassword, 10); //length of password before character choices
   let passwordOptions;
 
   if (isPasswordLengthSuitable(lengthOfPasswordAsNumber)) {
-    let lowerCase || upperCase || numerical || specialChars;
-    function characterPrompt () {
-     lowerCase = confirm('Do you want to include lowercase characters?')
-     upperCase = confirm('Do you want to include Uppercase characters?')
-     numerical = confirm('Do you want to include Numerical characters?')
-     specialChars = confirm('Do you want to include special characters?')
-    //ask more questions to see if user says yes at least 1 
-    //If user say yes continue loop but if not alert should appear telling user to pick at least 1
+    let lowerCase, upperCase, numerical, specialChars;
+    function characterPrompt() {
+      lowerCase = confirm('Do you want to include lowercase characters?')
+      upperCase = confirm('Do you want to include Uppercase characters?')
+      numerical = confirm('Do you want to include Numerical characters?')
+      specialChars = confirm('Do you want to include special characters?')
+      //ask more questions to see if user says yes at least 1 
+      //If user say yes continue loop but if not alert should appear telling user to pick at least 1
 
-  }
-
-    if (!(lowerCase || upperCase || numerical || specialChars)) {
-    } else {
-      alert('Choose 1 character type please')
     }
+    characterPrompt();
 
-      passwordOptions = {
-        lengthOfPassword,
-        lowerCase,
-        upperCase,
-        numerical,
-        specialChars,
-      }
-      console.log(passwordOptions);
-
-
+    //if the user does select any of the prompt options show an alert and go through prompts again
+    if (!(lowerCase || upperCase || numerical || specialChars)) {
+      alert('Choose at least 1 character type please')
+      characterPrompt();
+    } 
     
+
+    passwordOptions = {
+      lengthOfPassword,
+      lowerCase,
+      upperCase,
+      numerical,
+      specialChars,
+    }
+    console.log(passwordOptions);
+
+
+
 
     // Generate random password based on user answers
 
@@ -178,7 +180,7 @@ function getPasswordOptions() {
 // Function for getting a random element from an array
 function getRandom(arr) {
   // use math random to get random element from array if user wants lowercase,uppercase,numerical or spechial characters
-  return arr[Math.floor(Math.random()*arr.length)]
+  return arr[Math.floor(Math.random() * arr.length)]
 }
 
 // Function to generate password with user input
@@ -188,7 +190,7 @@ function generatePassword() {
   let newPassword = [];
   let requiredCharacters = [];
 
-//Added required characters to the requiredcharacters array
+  //Added required characters to the requiredcharacters array
   if (passwordOptions.lowerCase) {
     requiredCharacters = requiredCharacters.concat(lowerCasedCharacters);
 
@@ -196,20 +198,20 @@ function generatePassword() {
 
   if (passwordOptions.upperCase) {
     requiredCharacters = requiredCharacters.concat(upperCasedCharacters);
-    
+
   }
   if (passwordOptions.numerical) {
     requiredCharacters = requiredCharacters.concat(numericCharacters);
-    
-  } 
+
+  }
 
   if (passwordOptions.specialChars) {
     requiredCharacters = requiredCharacters.concat(specialCharacters);
-    
+
   }
 
 
-// Add one of each characters required by the user to new password array.
+  // Add one of each characters required by the user to new password array.
   if (passwordOptions.lowerCase) {
     newPassword.push(getRandom(lowerCasedCharacters));
   }
@@ -227,7 +229,7 @@ function generatePassword() {
   }
 
 
-finalPassword = newPassword.join("");
+  finalPassword = newPassword.join("");
   return finalPassword;
 
 
