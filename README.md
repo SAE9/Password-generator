@@ -22,6 +22,7 @@ Acceptance criteria:
 ## Table of Contents
 
 * [Installation](#installation)
+* [Images](#Images)
 * [Credits](#credits)
 * [License](#license)
 
@@ -31,6 +32,14 @@ Acceptance criteria:
 1) git clone git@github.com:username/repo.git
 2) Change into project's directory
 3) Start application on VS code
+
+## Images 
+![see here](image/5-1.png)
+![see here](image/5-2.png)
+![see here](image/5-3.png)
+![see here](image/5-4.png)
+![see here](image/5-5.png)
+![see here](image/5-6.png)
 
 ## Credits
 
