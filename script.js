@@ -128,8 +128,10 @@ function isPasswordLengthSuitable(lengthOfPassword) {
 function getPasswordOptions() {
   console.log('Get password conditions')
 
-  const lengthOfPassword = prompt('How long do you want your random password to be? (The length of the password should be minimum 8 characters long and maximun no more than 128 characters)') //Prompts user to decide password length to fit these options
+  const lengthOfPassword = prompt('How long do you want your random password to be? (The length of the password should be minimum 8 characters long and maximun no more than 128 characters)') 
+  //Prompts user to decide password length to fit these options
   const lengthOfPasswordAsNumber = parseInt(lengthOfPassword, 10); //length of password before character choices
+  let passwordOptions;
 
   if (isPasswordLengthSuitable(lengthOfPasswordAsNumber)) {
     const lowerCase = confirm('Do you want to include lowercase characters?')
@@ -139,27 +141,22 @@ function getPasswordOptions() {
     //ask more questions to see if user says yes at least 1 
     //If user say yes continue loop but if not alert should appear telling user to pick at least 1
 
-    const passwordOptions = {
-      lengthOfPassword,
-      lowerCase,
-      upperCase,
-      numerical,
-      specialChars,
-
-
-
-    }
-    console.log(passwordOptions);
-
-
-
-    if (lowerCase || upperCase || numerical || specialChars) {
-
-
-
+    if (!(lowerCase || upperCase || numerical || specialChars)) {
     } else {
       alert('Choose 1 character type please')
     }
+
+      passwordOptions = {
+        lengthOfPassword,
+        lowerCase,
+        upperCase,
+        numerical,
+        specialChars,
+      }
+      console.log(passwordOptions);
+
+
+    
 
     // Generate random password based on user answers
 
@@ -173,10 +170,6 @@ function getPasswordOptions() {
 
 
 }
-
-
-
-
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -211,6 +204,7 @@ function generatePassword() {
     
   }
 
+
 // Add one of each characters required by the user to new password array.
   if (passwordOptions.lowerCase) {
     newPassword.push(getRandom(lowerCasedCharacters));
@@ -227,6 +221,7 @@ function generatePassword() {
   if (passwordOptions.specialChars) {
     newPassword.push(getRandom(specialCharacters));
   }
+
 
 finalPassword = newPassword.join("");
   return finalPassword;
