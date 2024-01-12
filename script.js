@@ -158,7 +158,7 @@ function getPasswordOptions() {
       upperCase,
       numerical,
       specialChars,
-    }
+    };
     console.log(passwordOptions);
 
 
@@ -226,6 +226,10 @@ function generatePassword() {
 
   if (passwordOptions.specialChars) {
     newPassword.push(getRandom(specialCharacters));
+  }
+  
+  for (let i = newPassword.length; i <passwordOptions.lengthOfPassword; i++) {
+    newPassword.push(getRandom(requiredCharacters));
   }
 
 
