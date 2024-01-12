@@ -34,12 +34,12 @@ Acceptance criteria:
 3) Start application on VS code
 
 ## Images 
-* ![see here](asset/5-1.png)
-* ![see here](asset/5-2.png)
-* ![see here](asset/5-3.png)
-* ![see here](asset/5-4.png)
-* ![see here](asset/5-5.png)
-* ![see here](asset/5-6.png)
+ ![see here](asset/5-1.png)
+ ![see here](asset/5-2.png)
+ ![see here](asset/5-3.png)
+ ![see here](asset/5-4.png)
+ ![see here](asset/5-5.png)
+ ![see here](asset/5-6.png)
 
 ## Credits
 
