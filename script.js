@@ -186,25 +186,49 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  console.log('Generate password')
-  let finalPassword; //Allows final password to show on the textarea
   const passwordOptions = getPasswordOptions();
-  console.log(passwordOptions);
+  let finalPassword; //Allows final password to show on the textarea
   let newPassword = [];
-  let requiredCharacters = newPassword.concat(lengthOfPassword, lowerCasedCharacters, upperCasedCharacters, numericCharacters, specialCharacters);
-  console.log(requiredCharacters);
-  let i = newPassword;
-  for (let i = 0; i < le.length; i++) {
-    if ([i] < 8) {
-      add()
+  let requiredCharacters = [];
 
-    }
+//Added required characters to the requiredcharacters array
+  if (passwordOptions.lowerCase) {
+    requiredCharacters = requiredCharacters.concat(lowerCasedCharacters);
+
   }
 
-  //create a new password with one character from each userchoice of characters
+  if (passwordOptions.upperCase) {
+    requiredCharacters = requiredCharacters.concat(upperCasedCharacters);
+    
+  }
+  if (passwordOptions.numerical) {
+    requiredCharacters = requiredCharacters.concat(numericCharacters);
+    
+  } 
 
+  if (passwordOptions.specialChars) {
+    requiredCharacters = requiredCharacters.concat(specialCharacters);
+    
+  }
 
+// Add one of each characters required by the user to new password array.
+  if (passwordOptions.lowerCase) {
+    newPassword.push(getRandom(lowerCasedCharacters));
+  }
 
+  if (passwordOptions.upperCase) {
+    newPassword.push(getRandom(upperCasedCharacters));
+  }
+
+  if (passwordOptions.numerical) {
+    newPassword.push(getRandom(numericCharacters));
+  }
+
+  if (passwordOptions.specialChars) {
+    newPassword.push(getRandom(specialCharacters));
+  }
+
+finalPassword = newPassword.join("");
   return finalPassword;
 
 
