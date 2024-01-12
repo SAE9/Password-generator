@@ -134,12 +134,16 @@ function getPasswordOptions() {
   let passwordOptions;
 
   if (isPasswordLengthSuitable(lengthOfPasswordAsNumber)) {
-    const lowerCase = confirm('Do you want to include lowercase characters?')
-    const upperCase = confirm('Do you want to include Uppercase characters?')
-    const numerical = confirm('Do you want to include Numerical characters?')
-    const specialChars = confirm('Do you want to include special characters?')
+    let lowerCase || upperCase || numerical || specialChars;
+    function characterPrompt () {
+     lowerCase = confirm('Do you want to include lowercase characters?')
+     upperCase = confirm('Do you want to include Uppercase characters?')
+     numerical = confirm('Do you want to include Numerical characters?')
+     specialChars = confirm('Do you want to include special characters?')
     //ask more questions to see if user says yes at least 1 
     //If user say yes continue loop but if not alert should appear telling user to pick at least 1
+
+  }
 
     if (!(lowerCase || upperCase || numerical || specialChars)) {
     } else {
