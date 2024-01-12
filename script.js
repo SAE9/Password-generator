@@ -102,7 +102,7 @@ var upperCasedCharacters = [
 //Once prompts are answered then the password should be generated and displayed in an alert or written to the page//
 
 
-
+// Function to ensure user password fits criteria
 function isPasswordLengthSuitable(lengthOfPassword) {
   if (lengthOfPassword < 8) {
     return false;
@@ -122,10 +122,8 @@ function isPasswordLengthSuitable(lengthOfPassword) {
 
 }
 
-
 // Function to prompt user for password options
 function getPasswordOptions() {
-  console.log('Get password conditions')
 
   const lengthOfPassword = prompt('How long do you want your random password to be? (The length of the password should be minimum 8 characters long and maximun no more than 128 characters)')
   //Prompts user to decide password length to fit these options
@@ -151,7 +149,6 @@ function getPasswordOptions() {
       characterPrompt();
     } 
     
-
     passwordOptions = {
       lengthOfPassword,
       lowerCase,
@@ -160,9 +157,6 @@ function getPasswordOptions() {
       specialChars,
     };
     console.log(passwordOptions);
-
-
-
 
     // Generate random password based on user answers
 
@@ -210,7 +204,6 @@ function generatePassword() {
 
   }
 
-
   // Add one of each characters required by the user to new password array.
   if (passwordOptions.lowerCase) {
     newPassword.push(getRandom(lowerCasedCharacters));
@@ -227,19 +220,17 @@ function generatePassword() {
   if (passwordOptions.specialChars) {
     newPassword.push(getRandom(specialCharacters));
   }
-  
+
+  //for loop links new password to the user desired length
   for (let i = newPassword.length; i <passwordOptions.lengthOfPassword; i++) {
     newPassword.push(getRandom(requiredCharacters));
   }
 
-
+// Joins newPassword to final password to show in text area
   finalPassword = newPassword.join("");
   return finalPassword;
 
-
 }
-
-
 
 
 // Get references to the #generate element
